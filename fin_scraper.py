@@ -23,7 +23,8 @@ iso = pattern_one[pattern_one.columns[cols]]
 
 
 for price in range(1 ,len(iso["Price"])):
-    print(iso["Price"][price])
+    if int(float(iso["Price"][price])) > 15:
+        print(iso["Price"][price])
 
 
 # print(iso["Price"][1])
