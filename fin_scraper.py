@@ -18,10 +18,6 @@ cols = [1 ,8]
 iso = pattern_one[pattern_one.columns[cols]]
 
 
-#TODO
-#return ticker and prices that are higher than 15 dollars
-
-
 for price in range(1 ,len(iso["Price"])):
     if int(float(iso["Price"][price])) > 15:
         print(iso["Price"][price])
