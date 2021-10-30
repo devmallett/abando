@@ -33,7 +33,7 @@ class StockResearch:
 
 testing = StockResearch("IBM")
 
-testing.pull_overview()
+testing.pull_macd("5min" ,"open")
 
 
 

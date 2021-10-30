@@ -4,6 +4,21 @@ import pandas as pd
 
 
 
+
+#TODO
+#Add unit test across platform
+# Wrap funcitons in a class 
+# Abstract logic so that you only have to make function calls within the different patterns 
+# Map the keys and vlaues of those tickers and retrun them in a global object 
+
+# def price_logic():
+#  for price in range(1 ,len(iso["Price"])): #global in class
+#         if int(float(iso["Price"][price])) > 15:
+#             open_list.append(iso["Price"][price])
+#             print(open_list)
+    
+    
+
 def pattern_one():
 
     fin_headers = { #global in class
