@@ -82,7 +82,7 @@ class FinViz:
                 open_list.append(iso["Price"][price])
                 print(open_list)
 
-new_request = FinVizRequester()
+new_request = FinViz()
 
 new_request.pattern_one()
     
