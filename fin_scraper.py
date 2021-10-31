@@ -10,7 +10,7 @@ import pandas as pd
 # Map the keys and vlaues of those tickers and retrun them in a global object 
 
 
-class FinVizRequester:
+class FinViz:
     def __init__(self):
         self.target_cols = [1 ,8]
         self.open_list = []
