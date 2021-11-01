@@ -1,15 +1,18 @@
 import requests
-import os
 import json
+# import pandas as pd
+# from secrets import TWITTER_API
+# from secrets import TWITTER_API_KEY_SECRET
 from secrets import TWITTER_BEARER_TOKEN
+# from secrets import TWITTER_ACCESS_TOKEN
+# from secrets import TWITTER_ACCESS_TOKEN_SECRET
 
-# To set your environment variables in your terminal run the following line:
-# export 'BEARER_TOKEN'='<your_bearer_token>'
 bearer_token = TWITTER_BEARER_TOKEN
 
 
 def create_url():
-    return "https://api.twitter.com/2/tweets/sample/stream"
+    return "https://api.twitter.com/2/tweets/search/recent?query=eth"
+
 
 
 def bearer_oauth(r):
@@ -18,12 +21,12 @@ def bearer_oauth(r):
     """
 
     r.headers["Authorization"] = f"Bearer {bearer_token}"
-    r.headers["User-Agent"] = "v2SampledStreamPython"
+    # r.headers["User-Agent"] = "v2SampledStreamPython"
     return r
 
 
 def connect_to_endpoint(url):
-    response = requests.request("GET", url, auth=bearer_oauth, stream=True)
+    response = requests.request("GET", url, auth=bearer_oauth)
     print(response.status_code)
     for response_line in response.iter_lines():
         if response_line:
@@ -47,3 +50,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
