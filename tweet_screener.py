@@ -6,8 +6,14 @@ import json
 from secrets import TWITTER_BEARER_TOKEN
 # from secrets import TWITTER_ACCESS_TOKEN
 # from secrets import TWITTER_ACCESS_TOKEN_SECRET
+from fin_scraper import FinViz
 
 bearer_token = TWITTER_BEARER_TOKEN
+
+#TODO
+#limit the number of calls you recieve to 10 for testing - we only want top 10 tweets 
+#call a FinVIz pattern and return the tickers, then use the tickers in an api call to pull tickers associated with the tickers 
+
 
 
 def create_url():

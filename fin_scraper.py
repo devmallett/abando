@@ -17,12 +17,12 @@ class FinViz:
         self.headers = { 
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"}
 
-    # def price_logic(self):
-    #     iso = ""
-    #     for price in range(1 ,len(iso["Price"])): 
-    #             if int(float(iso["Price"][price])) > 15:
-    #                 self.open_list.append(iso["Price"][price])
-    #                 print(self.open_list)
+    def price_logic(self ,iso):
+        for price in range(1 ,len(iso["Price"])): 
+                if int(float(iso["Price"][price])) > 15:
+                    self.open_list.append(iso["Price"][price])
+                    print(self.open_list)
+        # return price_logic(iso)
     
 
 
@@ -36,14 +36,23 @@ class FinViz:
         pattern_one = pattern_one[-2]
         pattern_one.columns = pattern_one.iloc[0]
         pattern_one = pattern_one[1:]
-        iso = pattern_one[pattern_one.columns[self.target_cols]]
+        iso= pattern_one[pattern_one.columns[self.target_cols]]
+        # print(type(iso))
+        
+        self.price_logic(iso)
+        
 
-        open_list = []
-
-        for price in range(1 ,len(iso["Price"])): #global in class
-            if int(float(iso["Price"][price])) > 15:
-                open_list.append(iso["Price"][price])
-                print(open_list)
+        # open_list = []
+        # print(iso["Ticker"])
+        
+        # for ticker in range(1 ,len(iso["Ticker"])):
+        #     self.open_list.append(iso["Ticker"][ticker])
+        #     print(self.open_list)
+            
+        # for price in range(1 ,len(iso["Price"])): #global in class
+        #     if int(float(iso["Price"][price])) > 15:
+        #         self.open_list.append(iso["Ticker"][price])
+        #         print(self.open_list)
 
     def pattern_two(self):
 
