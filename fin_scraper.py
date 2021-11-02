@@ -44,10 +44,6 @@ class FinViz:
         pattern_one.columns = pattern_one.iloc[0]
         pattern_one = pattern_one[1:]
         iso= pattern_one[pattern_one.columns[self.target_cols]]
-        # a = np.array(self.pull_tickers(iso))
-        # b = np.array(self.pull_prices(iso))
-        # print ( , "this is a")
-        # print ( , "this is b")
         
         
         for tickers ,prices in zip ( self.pull_tickers(iso) ,self.pull_prices(iso) ):
