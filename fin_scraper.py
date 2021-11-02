@@ -46,13 +46,13 @@ class FinViz:
         iso= pattern_one[pattern_one.columns[self.target_cols]]
         # a = np.array(self.pull_tickers(iso))
         # b = np.array(self.pull_prices(iso))
-        print (self.pull_tickers(iso) , "this is a")
-        print (self.pull_prices(iso) , "this is b")
+        # print ( , "this is a")
+        # print ( , "this is b")
         
         
-        # for tickers ,prices in zip ( a ,b):
-        #     self.pattern_one_list[tickers] = prices
-        #     print(self.pattern_one_list)
+        for tickers ,prices in zip ( self.pull_tickers(iso) ,self.pull_prices(iso) ):
+            self.pattern_one_list[tickers] = prices
+        print(self.pattern_one_list)
             
         
         
