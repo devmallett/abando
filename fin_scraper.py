@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+import numpy as np
 
 
 
@@ -13,22 +14,28 @@ import pandas as pd
 class FinViz:
     def __init__(self):
         self.target_cols = [1 ,8]
-        self.open_list = []
+        self.ticker_list = []
+        self.price_list = []
+        self.pattern_one_list = {}
         self.headers = { 
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"}
 
-    def price_logic(self ,iso):
+    def pull_prices(self ,iso):
         for price in range(1 ,len(iso["Price"])): 
                 if int(float(iso["Price"][price])) > 15:
-                    self.open_list.append(iso["Price"][price])
-                    print(self.open_list)
-        # return price_logic(iso)
+                    self.price_list.append(iso["Price"][price])
+        return self.price_list
+
+
+    def pull_tickers(self ,iso):
+        for ticker in range(1 ,len(iso["Price"])): 
+                if int(float(iso["Price"][ticker])) > 15:
+                    self.ticker_list.append(iso["Ticker"][ticker])
+        return self.ticker_list
     
 
 
     def pattern_one(self):
-
-
         fin_viz_request = requests.get(
             "https://finviz.com/screener.ashx?v=111&f=sh_avgvol_o1000,sh_price_u20,ta_pattern_tlresistance&ft=4", headers=self.headers).text
 
@@ -37,9 +44,21 @@ class FinViz:
         pattern_one.columns = pattern_one.iloc[0]
         pattern_one = pattern_one[1:]
         iso= pattern_one[pattern_one.columns[self.target_cols]]
-        # print(type(iso))
+        # a = np.array(self.pull_tickers(iso))
+        # b = np.array(self.pull_prices(iso))
+        print (self.pull_tickers(iso) , "this is a")
+        print (self.pull_prices(iso) , "this is b")
         
-        self.price_logic(iso)
+        
+        # for tickers ,prices in zip ( a ,b):
+        #     self.pattern_one_list[tickers] = prices
+        #     print(self.pattern_one_list)
+            
+        
+        
+        
+        
+        
         
 
         # open_list = []
