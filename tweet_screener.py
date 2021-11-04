@@ -20,15 +20,8 @@ bearer_token = TWITTER_BEARER_TOKEN
 #call a FinVIz pattern and return the tickers, then use the tickers in an api call to pull tickers associated with the tickers 
 #Big TODO - associate tickers with tweets 
 """
-lets think about this 
-your end goal is to get 10 tweets associated with a ticker 
-right now you have 10 tweets associated with one ticker 
-ticker is hard coded
-you want to be able to bring the ticker from the finviz call and run it through the tweet screener
-thing is you dont want to do that in the tweet screener - you need an agreggator class that pulls from both apis
-you would still have to call the finviz api first to recieve the ticker 
-once you get the ticker you would have to run the ticker through the twitter class 
-first start by makign the tweet call into its own class
+so now you have a ticker into a single tweet beacuse you commented out the zipped object 
+with the zipped object you want to be able to 
 
 
 """
@@ -51,6 +44,7 @@ def bearer_oauth(r):
 
 
 def connect_to_endpoint(url):
+    tweet_list = []
     response = requests.request("GET", url, auth=bearer_oauth)
     print(response.status_code)
     for response_line in response.iter_lines(): 
@@ -60,10 +54,12 @@ def connect_to_endpoint(url):
                 #TODO 
                 # loop through an array of objects to pull text from each object
                 for each_item in tweet_list:
-                    for key ,val in each_item.items():
-                        if key == 'text':
+                    for tweet_key ,tweet_val in each_item.items():
+                        if tweet_key == 'text':
                             # print("{} : {}".format(key, val))
-                            print(val)
+                            print(tweet_val)
+                            # tweet_list.append(val)
+                            # print(tweet_list)
                             
                         # print("{} : {}".format(key, val))
                     # print(tweet_list[each_item]['text'])
