@@ -7,7 +7,12 @@ import datetime
 from secrets import TWITTER_BEARER_TOKEN
 # from secrets import TWITTER_ACCESS_TOKEN
 # from secrets import TWITTER_ACCESS_TOKEN_SECRET
-# from fin_scraper import FinViz
+from fin_scraper import FinViz
+
+
+new_request = FinViz()
+
+this_ticker = new_request.pattern_one()
 
 bearer_token = TWITTER_BEARER_TOKEN
 
@@ -30,7 +35,8 @@ first start by makign the tweet call into its own class
 
 
 def create_url():
-    return "https://api.twitter.com/2/tweets/search/recent?query=ABCL"
+    return "https://api.twitter.com/2/tweets/search/recent?query={}".format(this_ticker)
+    # return "https://api.twitter.com/2/tweets/search/recent?query=AGFY"
 
 
 

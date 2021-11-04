@@ -40,7 +40,8 @@ class FinViz:
         for tickers, prices in zip(self.pull_tickers(iso), self.pull_prices(iso)):
             
             self.pattern_one_dict[tickers] = prices
-        print(tickers)
+        return tickers
+        # print(tickers)
         # print(self.pattern_one_dict)
         # return self.pattern_one_dict
 
@@ -77,9 +78,6 @@ class FinViz:
         return self.pattern_three_dict
 
 
-new_request = FinViz()
-
-new_request.pattern_one()
 
 
 # print(iso)
