@@ -38,9 +38,11 @@ class FinViz:
         iso = pattern_one[pattern_one.columns[self.target_cols]]
 
         for tickers, prices in zip(self.pull_tickers(iso), self.pull_prices(iso)):
+            
             self.pattern_one_dict[tickers] = prices
+        print(tickers)
         # print(self.pattern_one_dict)
-        return self.pattern_one_dict
+        # return self.pattern_one_dict
 
     def pattern_two(self):
 
