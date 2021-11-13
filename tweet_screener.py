@@ -38,10 +38,10 @@ git AD
 
 def create_url():
     for ticker ,price in this_ticker.items():
-        print(ticker ,"this is th ekey from items pulled")
+        print(ticker ,"this is th key from items pulled")
         
-    # return "https://api.twitter.com/2/tweets/search/recent?query={}".format(ticker)
-        return "https://api.twitter.com/2/tweets/search/recent?query=ROON"
+        return "https://api.twitter.com/2/tweets/search/recent?query={}".format(ticker)
+        # return "https://api.twitter.com/2/tweets/search/recent?query=ROON"
 
 
 

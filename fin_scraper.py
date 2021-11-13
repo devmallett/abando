@@ -17,13 +17,13 @@ class FinViz:
 
     def pull_prices(self, iso):
         for price in range(1, len(iso["Price"])):
-            if int(float(iso["Price"][price])) > 15:
+            if int(float(iso["Price"][price])) > 5:
                 self.price_list.append(iso["Price"][price])
         return self.price_list
 
     def pull_tickers(self, iso):
         for ticker in range(1, len(iso["Price"])):
-            if int(float(iso["Price"][ticker])) > 15:
+            if int(float(iso["Price"][ticker])) > 5:
                 self.ticker_list.append(iso["Ticker"][ticker])
         return self.ticker_list
 
@@ -38,10 +38,12 @@ class FinViz:
         iso = pattern_one[pattern_one.columns[self.target_cols]]
 
         for tickers, prices in zip(self.pull_tickers(iso), self.pull_prices(iso)):
-            
-            self.pattern_one_dict[tickers] = prices
+            if tickers and prices:
+                self.pattern_one_dict[tickers] = prices
+            else:
+                break
         # return tickers
-        # print(tickers)
+        # print(tickers, "pattern one")
         # print(self.pattern_one_dict)
         return self.pattern_one_dict
 
@@ -57,9 +59,13 @@ class FinViz:
         iso = pattern_two[pattern_two.columns[self.target_cols]]
 
         for tickers, prices in zip(self.pull_tickers(iso), self.pull_prices(iso)):
-            self.pattern_two_dict[tickers] = prices
+            if tickers and prices:
+                self.pattern_two_dict[tickers] = prices
+            else:
+                break
         # print(self.pattern_two_dict)
         return self.pattern_two_dict
+        # print(tickers)
 
     def pattern_three(self):
 
@@ -73,9 +79,13 @@ class FinViz:
         iso = pattern_three[pattern_three.columns[self.target_cols]]
 
         for tickers, prices in zip(self.pull_tickers(iso), self.pull_prices(iso)):
-            self.pattern_three_dict[tickers] = prices
+            if tickers and prices:
+                self.pattern_three_dict[tickers] = prices
+            else: 
+                break
         # print(self.pattern_three_dict)
         return self.pattern_three_dict
+        # print(tickers, "this si pattern 3")
 
 
 
