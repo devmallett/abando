@@ -20,16 +20,6 @@ bearer_token = TWITTER_BEARER_TOKEN
 #call a FinVIz pattern and return the tickers, then use the tickers in an api call to pull tickers associated with the tickers 
 #Big TODO - associate tickers with tweets 
 """
-So right now you haver all of the tickers pulling from the finViz class
-You need to be able to have tweets associated with each ticker 
-Which means that if the object is already zipped, then you may want to package each tickers tweets up in a list 
-Once you package each tickers tweets in an array, then you would want to assign them to the tickers object 
-The question then becomes - how do you know which tweets are associated with the ticker?
-Should the object structure be different where the ticker is the main key and the values would be price and tweet?
-that would actually make more sense, how could you do it as is though?
-git AD
-
-
 
 """
 
@@ -37,11 +27,11 @@ git AD
 
 
 def create_url():
-    for ticker ,price in this_ticker.items():
-        print(ticker ,"this is th key from items pulled")
+    # for ticker ,price in this_ticker.items():
+    #     print(ticker ,"this is th key from items pulled")
         
-        return "https://api.twitter.com/2/tweets/search/recent?query={}".format(ticker)
-        # return "https://api.twitter.com/2/tweets/search/recent?query=ROON"
+        # return "https://api.twitter.com/2/tweets/search/recent?query={}".format(ticker)
+        return "https://api.twitter.com/2/tweets/search/recent?query=ROON"
 
 
 
