@@ -27,6 +27,7 @@ Once you package each tickers tweets in an array, then you would want to assign 
 The question then becomes - how do you know which tweets are associated with the ticker?
 Should the object structure be different where the ticker is the main key and the values would be price and tweet?
 that would actually make more sense, how could you do it as is though?
+git AD
 
 
 
@@ -38,8 +39,9 @@ that would actually make more sense, how could you do it as is though?
 def create_url():
     for ticker ,price in this_ticker.items():
         print(ticker ,"this is th ekey from items pulled")
-    return "https://api.twitter.com/2/tweets/search/recent?query={}".format(ticker)
-        # return "https://api.twitter.com/2/tweets/search/recent?query=AGFY"
+        
+    # return "https://api.twitter.com/2/tweets/search/recent?query={}".format(ticker)
+        return "https://api.twitter.com/2/tweets/search/recent?query=ROON"
 
 
 
