@@ -10,11 +10,6 @@ from secrets import TWITTER_BEARER_TOKEN
 # from fin_scraper import FinViz
 
 
-# new_request = FinViz()
-
-# this_ticker = new_request.pattern_one()
-
-# bearer_token = TWITTER_BEARER_TOKEN
 
 #TODO
 #call a FinVIz pattern and return the tickers, then use the tickers in an api call to pull tickers associated with the tickers 
@@ -24,8 +19,8 @@ from secrets import TWITTER_BEARER_TOKEN
 """
 
 class Tweets:
-    def __init__(self):
-        # self.ticker = None
+    def __init__(self ,ticker):
+        self.ticker = ticker
         self.bearer_token = TWITTER_BEARER_TOKEN
         self.tweet_list = []
 
@@ -33,9 +28,10 @@ class Tweets:
         # for ticker ,price in this_ticker.items():
         #     print(ticker ,"this is th key from items pulled")
             
-            # return "https://api.twitter.com/2/tweets/search/recent?query={}".format(ticker)
             print("URL was created")
-            return "https://api.twitter.com/2/tweets/search/recent?query=ROON"
+            return "https://api.twitter.com/2/tweets/search/recent?query={}".format(self.ticker)
+            
+            # return "https://api.twitter.com/2/tweets/search/recent?query=AAPL"
             
 
 
