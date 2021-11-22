@@ -3,6 +3,15 @@ from fin_scraper import FinViz
 from tweet_screener import Tweets
 
 # odl = FinViz()
+# TODO
+
+'''
+Could you put this in a django project - all of these API integrations - how would you do that?
+
+
+
+
+'''
 
 
 
